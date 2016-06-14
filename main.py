@@ -32,18 +32,16 @@ while (True):
 
 #well, now for the hardest part. the distance formula.
 #current position to target.
-targetXDistance = (target[0] - current[0])
-targetZDistance = (target[1] - current[1])
-capitalXDistance = (target[0] - capital[0])
-capitalZDistance = (target[1] - capital[1])
+targetDistance = ((target[0] - current[0]),(target[1] - current[1]))
+capitalDistance = ((target[0] - capital[0]), (target[1] - capital[1]))
 
-targetDistance = math.sqrt(math.pow(targetXDistance,2)+math.pow(targetZDistance,2))
+targetDistance = math.sqrt(math.pow(targetDistance[0],2)+math.pow(targetDistance[1],2))
 targetDistance = math.floor(targetDistance)
 print ("Distance from starting point to the target: " + repr(targetDistance))
 
 
 #capital to target. now we check if capitalX is 0, and do not execute this portion.
 if capital != 0:
-    capitalDistance = math.sqrt(math.pow(capitalXDistance,2)+math.pow(capitalZDistance,2))
+    capitalDistance = math.sqrt(math.pow(capitalDistance[0],2)+math.pow(capitalDistance[1],2))
     capitalDistance = math.floor(capitalDistance)
     print ("Distance from your capital to the target: " + repr(capitalDistance))
