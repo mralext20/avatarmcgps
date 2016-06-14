@@ -34,18 +34,23 @@ while (true):
 		capitalZ = 0
 		break;
 	else:
-		print("\n You didn't give a valid input. \n")
+		print("\nYou didn't give a valid input. \n")
 
 
 #well, now for the hardest part. the distance formula.
 #current position to target.
-currenttotarget = math.sqrt(math.pow(targetX-currentX,2)+math.pow(targetZ-currentZ,2))
-currenttotarget = math.floor(currenttotarget)
-print ("distance from starting point to the target: "+repr(currenttotarget))
+targetXDistance = (targetX - currentX)
+targetZDistance = (targetZ - currentZ)
+capitalXDistance = (targetX - capitalX)
+capitalZDistance = (targetZ - capitalZ)
+
+targetDistance = math.sqrt(math.pow(targetXDistance,2)+math.pow(targetZDistance,2))
+targetDistance = math.floor(targetDistance)
+print ("Distance from starting point to the target: " + repr(targetDistance))
 
 
 #capital to target. now we check if capitalX is 0, and do not execute this portion.
 if capitalX != 0:
-     capitaltotarget = math.sqrt(math.pow(targetX-capitalX,2)+math.pow(targetZ-capitalZ,2))
-     capitaltotarget = math.floor(capitaltotarget)
-     print ("distance from your capital to the target: "+repr(capitaltotarget))
+    capitalDistance = math.sqrt(math.pow(capitalXDistance,2)+math.pow(capitalZDistance,2))
+    capitaltotarget = math.floor(capitalDistance)
+    print ("Distance from your capital to the target: " + repr(capitalDistance))
