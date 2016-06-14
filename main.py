@@ -9,17 +9,20 @@ targetZ = eval(input("Please enter your target, or final Z coordinate: "))
 
 #your bending type, used for finding if /capital is closer.
 
-bending = input("what type of bending do you use? valid choices are air, water, fire, earth: ")
-if bending == "fire":
+bendingInput = input("What type of bending do you use? valid choices are air, water, fire, earth: ")
+
+bendingInput.upper()
+
+if bending == "FIRE":
     capitalX = 3950
     capitalZ = 9760
-elif bending == "air":
+elif bending == "AIR":
     capitalX = 10820
     capitalZ = 15010
-elif bending == "water":
+elif bending == "WATER":
     capitalX = 13300
     capitalZ = 2030
-elif bending == "earth":
+elif bending == "EARTH":
     capitalX = 19780
     capitalZ = 5730
 else:
