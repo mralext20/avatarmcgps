@@ -9,9 +9,9 @@ targetZ = eval(input("Please enter your target, or final Z coordinate: "))
 
 #your bending type, used for finding if /capital is closer.
 
-while (true):
-	bendingInput = input("What type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
-	bendingInput.upper()
+while (True):
+	bending = input("What type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
+	bending = bending.upper()
 
 	if bending == "FIRE":
 		capitalX = 3950
@@ -52,5 +52,5 @@ print ("Distance from starting point to the target: " + repr(targetDistance))
 #capital to target. now we check if capitalX is 0, and do not execute this portion.
 if capitalX != 0:
     capitalDistance = math.sqrt(math.pow(capitalXDistance,2)+math.pow(capitalZDistance,2))
-    capitaltotarget = math.floor(capitalDistance)
+    capitalDistance = math.floor(capitalDistance)
     print ("Distance from your capital to the target: " + repr(capitalDistance))
