@@ -34,7 +34,7 @@ while (true):
 		capitalZ = 0
 		break;
 	else:
-		print("You didn't give a valid input. \n")
+		print("\n You didn't give a valid input. \n")
 
 
 #well, now for the hardest part. the distance formula.
