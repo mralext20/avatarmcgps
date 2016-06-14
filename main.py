@@ -9,26 +9,33 @@ targetZ = eval(input("Please enter your target, or final Z coordinate: "))
 
 #your bending type, used for finding if /capital is closer.
 
-bendingInput = input("What type of bending do you use? valid choices are air, water, fire, earth: ")
+while (true):
+	bendingInput = input("What type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
+	bendingInput.upper()
 
-bendingInput.upper()
+	if bending == "FIRE":
+		capitalX = 3950
+		capitalZ = 9760
+		break;
+	elif bending == "AIR":
+		capitalX = 10820
+		capitalZ = 15010
+		break;
+	elif bending == "WATER":
+		capitalX = 13300
+		capitalZ = 2030
+		break;
+	elif bending == "EARTH":
+		capitalX = 19780
+		capitalZ = 5730
+		break;
+	elif bending == "NONE":
+		capitalX = 0
+		capitalZ = 0
+		break;
+	else:
+		print("You didn't give a valid input. \n")
 
-if bending == "FIRE":
-    capitalX = 3950
-    capitalZ = 9760
-elif bending == "AIR":
-    capitalX = 10820
-    capitalZ = 15010
-elif bending == "WATER":
-    capitalX = 13300
-    capitalZ = 2030
-elif bending == "EARTH":
-    capitalX = 19780
-    capitalZ = 5730
-else:
-    print("you didnt input a valid bending. continueing with no capital.")
-    capitalX = 0
-    capitalZ = 0
 
 #well, now for the hardest part. the distance formula.
 #current position to target.
