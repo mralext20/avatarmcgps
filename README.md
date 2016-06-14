@@ -1,3 +1,3 @@
 #AvatarMCgps
 
-a simple program that tells you the best way to get to a specified xz coordanient based on your current location, and bending type.
+A simple program that tells you the best way to get to a specified XZ coordinate based on your current location and bending type.
