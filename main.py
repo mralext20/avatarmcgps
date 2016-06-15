@@ -29,6 +29,17 @@ while (True):
 	else:
 		print("\nYou didn't give a valid input. \n")
 
+while (True):
+    playernation = input("What player nation are you a part of? examples include Panelementa, or Peoples Confederacy(PC).")
+    playernation = playernation.upper()
+
+    if playernation == "PANELEMENTA":
+        nationtowns=[("hyperborea", 15280, 3765),("jiangshi", 18696, 8258),("frostfire", 13190, 916),("nenshoken", 5599, 10921),("golae", 13545, 13314),("Puraheadquarter", 14508, 8404),("SouthernRaders", 12981, 13449),("NaiSui", 9670, 5215),("Khorg Maldur", 4661, 10851),("Fuego del Mar", 12952, 584)]
+        break;
+    if playernation == "NONE":
+        break;
+    else:
+        print("\nI dont appear to have your nation yet... file an issue at github.com/mralext20/avatarmcgps\n\n\n in the mean time, just type none.")
 
 #well, now for the hardest part. the distance formula.
 #current position to target.
@@ -45,3 +56,10 @@ if capital != 0:
     capitalDistance = math.sqrt(math.pow(capitalDistance[0],2)+math.pow(capitalDistance[1],2))
     capitalDistance = math.floor(capitalDistance)
     print ("Distance from your capital to the target: " + repr(capitalDistance))
+
+if playernation != "NONE":
+    for (town, x, z) in nationtowns:
+        townDistance = ((target[0] - x),(target[1] - z))
+        townDistance = math.sqrt(math.pow(townDistance[0],2)+math.pow(townDistance[1],2))
+        townDistance = math.floor(townDistance)
+        print(town+" is this far from your target: "+repr(townDistance))
