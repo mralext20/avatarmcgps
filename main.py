@@ -36,7 +36,6 @@ while (True):
 	else:
 		print("\nYou didn't give a valid input. \n")
 
-
 while (True):
     nationInput = input("What player nation are you a part of? (To see a list, type 'List'): ")
     nationInput = nationInput.upper()
@@ -55,12 +54,10 @@ while (True):
         nationtowns=[("hyperborea", 15280, 3765),("jiangshi", 18696, 8258),("frostfire", 13190, 916),("nenshoken", 5599, 10921),("golae", 13545, 13314),("Puraheadquarter", 14508, 8404),("SouthernRaders", 12981, 13449),("NaiSui", 9670, 5215),("Khorg Maldur", 4661, 10851),("Fuego del Mar", 12952, 584)]
         break;
     '''
-
     
 targetDistance = MathUtil.getDistance(currentLocationCordinate, targetCordinate)
 
 print ("Distance from starting point to the target: " + str(targetDistance))
-
 
 #capital to target. now we check if capitalX is 0, and do not execute this portion.
 if bendingInput != "NONE":
