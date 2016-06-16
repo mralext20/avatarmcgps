@@ -5,3 +5,5 @@ class Cordinate:
 
     def printCordinate(self):
         print("Cordinate: " + str(self.xCord) + ", " + str(self.zCord))
+        
+    #TODO: Any other functions needed here?
