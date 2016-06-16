@@ -2,7 +2,6 @@ import configparser
 from cordinate import Cordinate
 
 class TownListHandler:
-    
     def getConifg():
         fileName = 'TownList.ini'
         config =  configparser.ConfigParser()
@@ -23,7 +22,6 @@ class TownListHandler:
         config = TownListHandler.getConifg()
         townList = config.options(nationName)
         
-        
         print("\n   " + nationName + "    ")
         print ("---------------")
         for town in townList:
@@ -39,7 +37,6 @@ class TownListHandler:
         config = TownListHandler.getConifg()
         cordString = config.get(nationName, townName)
         cordStringValues = cordString.split(",", 1)
-        
         townCord = Cordinate(int(cordStringValues[0]), int(cordStringValues[1]))
         
         return townCord
@@ -49,6 +46,8 @@ class TownListHandler:
         townList = config.options(nationName)
         
         return townList
+
+#TODO: These functions?
 '''
     def getClosestTowns(cordCurrent):
     
