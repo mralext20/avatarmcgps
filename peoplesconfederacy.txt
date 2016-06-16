@@ -1,4 +1,0 @@
-[(UnityCity, 20305, 8976),(Mori, 17347, 7138), (Pawnee_India, 19872, 12224),(Finland, 13079, 8059),(Caelus, 13513, 6651), (AtlantisCity, 16409, 2865), (GyatsoGrove, 
-20430, 7286), (Halda-i-Minasse, 12359, 680), (KyoshiTower, 12823, 13464), (EarthBendingIsWACK, 4776, 9057), (Guo, 17662, 8012), (Crustican_City, 17364, 5799), (Gondor, 
-21817, 8947), (Cloudbank, 21191, 7169), (YOLO, 24351, 8521), (HotSpot, 6719, 10467), (Farseer, 22450, 14585), (Fort_Scotland, 13836, 907), (Qichou, 23345, 11684), 
-(Nevermore, 14548, 4956)]

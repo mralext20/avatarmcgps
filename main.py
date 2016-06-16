@@ -16,7 +16,7 @@ targetCordinate.printCordinate()
 
 #TODO: Move this to it's own class? Just have it return a Cordinate perhaps?
 while (True):
-	bendingInput = input("\nWhat type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
+	bendingInput = input("\nWhat type of bending do you use? Valid choices are air, water, fire, earth: ")
 	bendingInput = bendingInput.upper()
 
 	if bendingInput == "FIRE":
@@ -30,8 +30,6 @@ while (True):
 		break;
 	elif bendingInput == "EARTH":
 		capitalCordinate = Cordinate(19780, 5730)
-		break;
-	elif bendingInput == "NONE":
 		break;
 	else:
 		print("\nYou didn't give a valid input. \n")
@@ -49,12 +47,8 @@ while (True):
             break;
         else:
             print("\nI dont appear to have your nation yet... file an issue at github.com/mralext20/avatarmcgps\n\n\n in the mean time, just type none.")
-    '''
-    if playernation == "PANELEMENTA":
-        nationtowns=[("hyperborea", 15280, 3765),("jiangshi", 18696, 8258),("frostfire", 13190, 916),("nenshoken", 5599, 10921),("golae", 13545, 13314),("Puraheadquarter", 14508, 8404),("SouthernRaders", 12981, 13449),("NaiSui", 9670, 5215),("Khorg Maldur", 4661, 10851),("Fuego del Mar", 12952, 584)]
-        break;
-    '''
-    
+
+
 targetDistance = MathUtil.getDistance(currentLocationCordinate, targetCordinate)
 
 print ("Distance from starting point to the target: " + str(targetDistance))
@@ -66,9 +60,9 @@ if bendingInput != "NONE":
 
 if nationInput != "NONE":
     townList = TownListHandler.getNationTownList(nationInput)
-    
+
     for town in townList:
         townCord = TownListHandler.getTownCord(nationInput, town)
         townDistance = MathUtil.getDistance(currentLocationCordinate, townCord)
-        
+
         print("Your current distance from " + town.upper() + " is : " + str(townDistance))
