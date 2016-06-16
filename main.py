@@ -1,65 +1,77 @@
 import math
-current = eval(input("Please enter your current location, in X, Z format: "))
+from mathUtil import MathUtil
+from cordinate import Cordinate
+from TownListHandler import TownListHandler
 
-#above gets current location, bellow finds out where you are trying to get to
+#TODO: Clean this up and make a function that takes a string and returns a Cordinate
+currentLocationInput = input("Please enter your current location, in X,Z format (Example: 230,134): ")
+currentLocationList = currentLocationInput.split(",", 1)
+currentLocationCordinate = Cordinate(currentLocationList[0], currentLocationList[1])
+currentLocationCordinate.printCordinate()
 
-target = eval(input("Please enter your target, in X, Z format: "))
+targetInput = input("Please enter your target location, in X,Z format (Example: 230,134): ")
+targetCordinateList = targetInput.split(",", 1)
+targetCordinate = Cordinate(targetCordinateList[0], targetCordinateList[1])
+targetCordinate.printCordinate()
 
-#your bending type, used for finding if /capital is closer.
-
+#TODO: Move this to it's own class? Just have it return a Cordinate perhaps?
 while (True):
-	bending = input("What type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
-	bending = bending.upper()
+	bendingInput = input("\nWhat type of bending do you use? Valid choices are air, water, fire, earth, or none: ")
+	bendingInput = bendingInput.upper()
 
-	if bending == "FIRE":
-		capital = (3950, 9760)
+	if bendingInput == "FIRE":
+		capitalCordinate = Cordinate(3950, 9760)
 		break;
-	elif bending == "AIR":
-		capital = (10820, 15010)
+	elif bendingInput == "AIR":
+		capitalCordinate = Cordinate(10820, 15010)
 		break;
-	elif bending == "WATER":
-		capital = (13300, 2030)
+	elif bendingInput == "WATER":
+		capitalCordinate = Cordinate(13300, 2030)
 		break;
-	elif bending == "EARTH":
-		capital = (19780, 5730)
+	elif bendingInput == "EARTH":
+		capitalCordinate = Cordinate(19780, 5730)
 		break;
-	elif bending == "NONE":
-		capital = 0
+	elif bendingInput == "NONE":
 		break;
 	else:
 		print("\nYou didn't give a valid input. \n")
 
-while (True):
-    playernation = input("What player nation are you a part of? examples include Panelementa, or Peoples Confederacy(PC).")
-    playernation = playernation.upper()
 
+while (True):
+    nationInput = input("What player nation are you a part of? (To see a list, type 'List'): ")
+    nationInput = nationInput.upper()
+
+    if nationInput == "LIST":
+        TownListHandler.printNationList()
+    elif nationInput == "NONE":
+        break;
+    else:
+        if TownListHandler.hasNation(nationInput):
+            break;
+        else:
+            print("\nI dont appear to have your nation yet... file an issue at github.com/mralext20/avatarmcgps\n\n\n in the mean time, just type none.")
+    '''
     if playernation == "PANELEMENTA":
         nationtowns=[("hyperborea", 15280, 3765),("jiangshi", 18696, 8258),("frostfire", 13190, 916),("nenshoken", 5599, 10921),("golae", 13545, 13314),("Puraheadquarter", 14508, 8404),("SouthernRaders", 12981, 13449),("NaiSui", 9670, 5215),("Khorg Maldur", 4661, 10851),("Fuego del Mar", 12952, 584)]
         break;
-    if playernation == "NONE":
-        break;
-    else:
-        print("\nI dont appear to have your nation yet... file an issue at github.com/mralext20/avatarmcgps\n\n\n in the mean time, just type none.")
+    '''
 
-#well, now for the hardest part. the distance formula.
-#current position to target.
-targetDistance = ((target[0] - current[0]),(target[1] - current[1]))
-capitalDistance = ((target[0] - capital[0]), (target[1] - capital[1]))
+    
+targetDistance = MathUtil.getDistance(currentLocationCordinate, targetCordinate)
 
-targetDistance = math.sqrt(math.pow(targetDistance[0],2)+math.pow(targetDistance[1],2))
-targetDistance = math.floor(targetDistance)
-print ("Distance from starting point to the target: " + repr(targetDistance))
+print ("Distance from starting point to the target: " + str(targetDistance))
 
 
 #capital to target. now we check if capitalX is 0, and do not execute this portion.
-if capital != 0:
-    capitalDistance = math.sqrt(math.pow(capitalDistance[0],2)+math.pow(capitalDistance[1],2))
-    capitalDistance = math.floor(capitalDistance)
-    print ("Distance from your capital to the target: " + repr(capitalDistance))
+if bendingInput != "NONE":
+    capitalDistance = MathUtil.getDistance(targetCordinate, capitalCordinate)
+    print ("Distance from your capital to the target: " + str(capitalDistance))
 
-if playernation != "NONE":
-    for (town, x, z) in nationtowns:
-        townDistance = ((target[0] - x),(target[1] - z))
-        townDistance = math.sqrt(math.pow(townDistance[0],2)+math.pow(townDistance[1],2))
-        townDistance = math.floor(townDistance)
-        print(town+" is this far from your target: "+repr(townDistance))
+if nationInput != "NONE":
+    townList = TownListHandler.getNationTownList(nationInput)
+    
+    for town in townList:
+        townCord = TownListHandler.getTownCord(nationInput, town)
+        townDistance = MathUtil.getDistance(currentLocationCordinate, townCord)
+        
+        print("Your current distance from " + town.upper() + " is : " + str(townDistance))
