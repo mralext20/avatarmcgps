@@ -63,6 +63,6 @@ if nationInput != "NONE":
 
     for town in townList:
         townCord = TownListHandler.getTownCord(nationInput, town)
-        townDistance = MathUtil.getDistance(currentLocationCoordinate, townCord)
+        townDistance = MathUtil.getDistance(targetCoordinate, townCord)
 
-        print("Your current distance from " + town.upper() + " is : " + str(townDistance))
+        print(str(townDistance) +" is the distance from " + town.upper() + " to your target")
