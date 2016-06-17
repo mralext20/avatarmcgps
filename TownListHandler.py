@@ -1,5 +1,5 @@
 import configparser
-from cordinate import Cordinate
+from coordinate import Coordinate
 
 class TownListHandler:
     def getConfig():
@@ -37,7 +37,7 @@ class TownListHandler:
         config = TownListHandler.getConfig()
         cordString = config.get(nationName, townName)
         cordStringValues = cordString.split(",", 1)
-        townCord = Cordinate(int(cordStringValues[0]), int(cordStringValues[1]))
+        townCord = Coordinate(int(cordStringValues[0]), int(cordStringValues[1]))
 
         return townCord
 
